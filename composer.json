@@ -4,6 +4,7 @@
     "keywords": ["laravel", "notifications", "ultrasms"],
     "homepage": "https://github.com/shiroamada/ultrasms-laravel-notification",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Shiro Amada",
