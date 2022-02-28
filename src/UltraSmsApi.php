@@ -52,7 +52,7 @@ class UltraSmsApi
         try {
             $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['body']}";
 
-            $response = $this->httpClient->request('GET', $this->apiUrl.$sendsms_url);
+            $response = $this->httpClient->request('GET', $this->apiUrl.$this->instanceId.$this->action.$sendsms_url);
 
             $stream = $response->getBody();
 
