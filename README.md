@@ -32,7 +32,7 @@ Code Reference from laravel-notification-channels/smsc-ru
 You can install the package via composer:
 
 ```bash
-composer require shiroamada/ultrasms-laravel-notifiation
+composer require shiroamada/ultrasms-laravel-notification
 ```
 
 Then you must install the service provider:
