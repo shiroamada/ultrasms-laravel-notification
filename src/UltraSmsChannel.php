@@ -45,20 +45,31 @@ class UltraSmsChannel
         $message->content = html_entity_decode($message->content, ENT_QUOTES, 'utf-8');
         $message->content = urlencode($message->content);
 
-        //the sms format must start with 6
+        //the sms format must start with 6 (for malaysia)
         $valid_mobile = '';
 
-        if ($recipient[0] == '6') {
-            $valid_mobile = '+'.$recipient;
+        //debug mode is to avoid send whatsapp to your real customer
+        if ($this->ultrasms->isDebug)
+        {
+            $valid_mobile = $this->ultrasms->debugReceiveNumber;
         }
+        else
+        {
+            //this is for malaysia number use case, other country kindly fork your version
+            if ($recipient[0] == '6')
+            {
+                $valid_mobile = '+' . $recipient;
+            }
 
-        if ($recipient[0] == '0') {
-            $valid_mobile = '+6'.$recipient;
+            if ($recipient[0] == '0')
+            {
+                $valid_mobile = '+6' . $recipient;
+            }
         }
 
         $params = [
             'to'        => $valid_mobile,
-            'body'      => $message->content,
+            'mesg'      => $message->content,
         ];
 
         if ($message->sendAt instanceof \DateTimeInterface) {

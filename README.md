@@ -52,8 +52,10 @@ Add your ultrasms instanceId and token to your `config/services.php`:
 // config/services.php
 ...
 'ultrasms' => [
-    'instanceId'   => env('ULTRASMS_INSTANCEID'),
-    'token'        => env('ULTRASMS_TOKEN'),
+    'instanceId' => env('ULTRASMS_INSTANCEID'),
+    'token' => env('ULTRASMS_TOKEN'),
+    'isDebug' => env('ULTRASMS_DEBUG_ENABLE') ?? 0,
+    'debugReceiveNumber' => env('ULTRASMS_DEBUG_RECEIVE_NUMBER'),
 ],
 ...
 ```

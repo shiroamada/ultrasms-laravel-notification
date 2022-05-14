@@ -22,6 +22,13 @@ class UltraSmsApi
     /** @var string */
     protected $token;
 
+    /** @var integer */
+    public $isDebug;
+
+    /** @var string */
+    public $debugReceiveNumber;
+
+
     /** @var string */
     protected $action = '/messages/chat';
 
@@ -33,6 +40,10 @@ class UltraSmsApi
     {
         $this->instanceId = $config['instanceId'];
         $this->token = $config['token'];
+
+        $this->isDebug = $config['isDebug'];
+        $this->debugReceiveNumber = $config['debugReceiveNumber'];
+
 
         $this->httpClient = new HttpClient([
             'base_uri' =>  $this->apiUrl.$this->instanceId.$this->action,
