@@ -23,6 +23,9 @@ class UltraSmsApi
     protected $token;
 
     /** @var integer */
+    public $isMalaysiaMode;
+
+    /** @var integer */
     public $isDebug;
 
     /** @var string */
@@ -41,6 +44,7 @@ class UltraSmsApi
         $this->instanceId = $config['instanceId'];
         $this->token = $config['token'];
 
+        $this->isMalaysiaMode = $config['isMalaysiaMode'];
         $this->isDebug = $config['isDebug'];
         $this->debugReceiveNumber = $config['debugReceiveNumber'];
 

@@ -55,15 +55,23 @@ class UltraSmsChannel
         }
         else
         {
-            //this is for malaysia number use case, other country kindly fork your version
-            if ($recipient[0] == '6')
+            if($this->ultrasms->isMalaysiaMode)
             {
-                $valid_mobile = '+' . $recipient;
-            }
+                //this is for malaysia number use case,
+                if ($recipient[0] == '6')
+                {
+                    $valid_mobile = '+' . $recipient;
+                }
 
-            if ($recipient[0] == '0')
+                if ($recipient[0] == '0')
+                {
+                    $valid_mobile = '+6' . $recipient;
+                }
+            }
+            else
             {
-                $valid_mobile = '+6' . $recipient;
+                //please set +[CountryCode]
+                $valid_mobile = $recipient;
             }
         }
 
