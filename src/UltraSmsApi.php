@@ -65,7 +65,7 @@ class UltraSmsApi
     public function send($params)
     {
         try {
-            $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['body']}";
+            $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['mesg']}";
 
             $response = $this->httpClient->request('GET', $this->apiUrl.$this->instanceId.$this->action.$sendsms_url);
 
