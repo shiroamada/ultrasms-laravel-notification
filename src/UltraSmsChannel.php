@@ -45,7 +45,10 @@ class UltraSmsChannel
         $message->content = html_entity_decode($message->content, ENT_QUOTES, 'utf-8');
         $message->content = urlencode($message->content);
 
-        //the sms format must start with 6 (for malaysia)
+        //clean the recipient
+        $recipient = str_replace("-", "", $recipient);
+        $recipient = str_replace(" ", "", $recipient);
+
         $valid_mobile = '';
 
         //debug mode is to avoid send whatsapp to your real customer
