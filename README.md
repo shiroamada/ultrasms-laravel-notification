@@ -52,6 +52,7 @@ Add your ultrasms instanceId and token to your `config/services.php`:
 // config/services.php
 ...
 'ultrasms' => [
+    'isEnable' => env('ULTRASMS_ENABLE') ?? 0,
     'instanceId' => env('ULTRASMS_INSTANCEID'),
     'token' => env('ULTRASMS_TOKEN'),
     'isMalaysiaMode' => env('ULTRASMS_MALAYSIA_MODE') ?? 0,

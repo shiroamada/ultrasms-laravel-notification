@@ -30,7 +30,7 @@ class CouldNotSendNotification extends Exception
     }
 
     /**
-     * Thrown when we're unable to communicate with smsc.ru.
+     * Thrown when we're unable to communicate with ultrasms.
      *
      * @param  DomainException  $exception
      *
@@ -44,7 +44,7 @@ class CouldNotSendNotification extends Exception
     }
 
     /**
-     * Thrown when we're unable to communicate with smsc.ru.
+     * Thrown when we're unable to communicate with ultrasms.
      *
      * @param  Exception  $exception
      *
