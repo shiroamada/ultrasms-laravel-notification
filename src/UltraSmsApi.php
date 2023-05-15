@@ -26,6 +26,9 @@ class UltraSmsApi
     public $isMalaysiaMode;
 
     /** @var integer */
+    public $isEnable;
+
+    /** @var integer */
     public $isDebug;
 
     /** @var string */
@@ -45,13 +48,14 @@ class UltraSmsApi
         $this->token = $config['token'];
 
         $this->isMalaysiaMode = $config['isMalaysiaMode'];
+        $this->isEnable = (isset($config['isEnable']) ? $config['isEnable'] : 0);
         $this->isDebug = $config['isDebug'];
         $this->debugReceiveNumber = $config['debugReceiveNumber'];
 
 
         $this->httpClient = new HttpClient([
             'base_uri' =>  $this->apiUrl.$this->instanceId.$this->action,
-            'timeout' => 2.0,
+            'timeout' => 8.0,
         ]);
     }
 
@@ -64,22 +68,25 @@ class UltraSmsApi
      */
     public function send($params)
     {
-        try {
-            $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['mesg']}";
+        if($this->isEnable)
+        {
+            try {
+                $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['mesg']}";
 
-            $response = $this->httpClient->request('GET', $this->apiUrl.$this->instanceId.$this->action.$sendsms_url);
+                $response = $this->httpClient->request('GET', $this->apiUrl.$this->instanceId.$this->action.$sendsms_url);
 
-            $stream = $response->getBody();
+                $stream = $response->getBody();
 
-            $content = $stream->getContents();
+                $content = $stream->getContents();
 
-            $response = json_decode((string) $response->getBody(), true);
+                $response = json_decode((string) $response->getBody(), true);
 
-            return $response;
-        } catch (DomainException $exception) {
-            throw CouldNotSendNotification::exceptionUltraSmsRespondedWithAnError($exception);
-        } catch (\Exception $exception) {
-            throw CouldNotSendNotification::couldNotCommunicateWithUltraSms($exception);
+                return $response;
+            } catch (DomainException $exception) {
+                throw CouldNotSendNotification::exceptionUltraSmsRespondedWithAnError($exception);
+            } catch (\Exception $exception) {
+                throw CouldNotSendNotification::couldNotCommunicateWithUltraSms($exception);
+            }
         }
     }
 }
