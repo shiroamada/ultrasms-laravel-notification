@@ -1,7 +1,7 @@
 # UltraSms notifications channel for Laravel 5.3+
 
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/shiroamada/ultrasms.svg?style=flat-square)](https://packagist.org/packages/shiroamada/ultrasms-laravel-notification)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/shiroamada/ultrasms-laravel-notification.svg?style=flat-square)](https://packagist.org/packages/shiroamada/ultrasms-laravel-notification)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/shiroamada/ultrasms-laravel-notification/master.svg?style=flat-square)](https://travis-ci.org/shiroamada/gosms)
 [![StyleCI](https://styleci.io/repos/108503043/shield)](https://styleci.io/repos/108503043)
