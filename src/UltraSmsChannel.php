@@ -70,6 +70,11 @@ class UltraSmsChannel
                 {
                     $valid_mobile = '+6' . $recipient;
                 }
+
+                if ($recipient[0] == '+')
+                {
+                    $valid_mobile = $recipient;
+                }
             }
             else
             {
