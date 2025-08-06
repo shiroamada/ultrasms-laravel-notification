@@ -1,7 +1,7 @@
 {
     "name": "shiroamada/ultrasms-laravel-notification",
     "description": "UltraSms Notifications channel for Laravel 11 and Above",
-    "keywords": ["laravel", "notifications", "green-api"],
+    "keywords": ["laravel", "notifications", "ultrasms"],
     "homepage": "https://github.com/shiroamada/ultrasms-laravel-notification",
     "license": "MIT",
     "authors": [
