@@ -48,6 +48,7 @@ class UltraSmsApi
         $this->token = $config['token'];
         $this->isEnable = (isset($config['isEnable']) ? $config['isEnable'] : 0);
         $this->isMalaysiaMode = $config['isMalaysiaMode'];
+        $this->isEnable = (isset($config['isEnable']) ? $config['isEnable'] : 0);
         $this->isDebug = $config['isDebug'];
         $this->debugReceiveNumber = $config['debugReceiveNumber'];
 
@@ -69,11 +70,10 @@ class UltraSmsApi
     {
         if($this->isEnable)
         {
-            try
-            {
+            try {
                 $sendsms_url = "?token={$this->token}&priority={$this->priority}&to={$params['to']}&body={$params['mesg']}";
 
-                $response = $this->httpClient->request('GET', $this->apiUrl . $this->instanceId . $this->action . $sendsms_url);
+                $response = $this->httpClient->request('GET', $this->apiUrl.$this->instanceId.$this->action.$sendsms_url);
 
                 $stream = $response->getBody();
 
@@ -82,11 +82,9 @@ class UltraSmsApi
                 $response = json_decode((string) $response->getBody(), true);
 
                 return $response;
-            } catch (DomainException $exception)
-            {
+            } catch (DomainException $exception) {
                 throw CouldNotSendNotification::exceptionUltraSmsRespondedWithAnError($exception);
-            } catch (\Exception $exception)
-            {
+            } catch (\Exception $exception) {
                 throw CouldNotSendNotification::couldNotCommunicateWithUltraSms($exception);
             }
         }

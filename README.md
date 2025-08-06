@@ -1,4 +1,4 @@
-# UltraSms notifications channel for Laravel 5.3+
+# UltraSms notifications channel for Laravel 11+
 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/shiroamada/ultrasms-laravel-notification.svg?style=flat-square)](https://packagist.org/packages/shiroamada/ultrasms-laravel-notification)
@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/smsc-ru/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/shiroamada/ultrasms-laravel-notification/?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/shiroamada/ultrasms-laravel-notification.svg?style=flat-square)](https://packagist.org/packages/shiroamada/ultrasms-laravel-notification)
 
-This package makes it easy to send notifications using [https://ultramsg.com/](https://ultramsg.com/) with Laravel 5.3+.
+This package makes it easy to send notifications using [https://ultramsg.com/](https://ultramsg.com/) with Laravel 11+.
 
 Code Reference from laravel-notification-channels/smsc-ru
 
@@ -56,6 +56,7 @@ Add your ultrasms instanceId and token to your `config/services.php`:
     'instanceId' => env('ULTRASMS_INSTANCEID'),
     'token' => env('ULTRASMS_TOKEN'),
     'isMalaysiaMode' => env('ULTRASMS_MALAYSIA_MODE') ?? 0,
+    'isEnable' => env('ULTRASMS_ENABLE') ?? 0,
     'isDebug' => env('ULTRASMS_DEBUG_ENABLE') ?? 0,
     'debugReceiveNumber' => env('ULTRASMS_DEBUG_RECEIVE_NUMBER'),
 ],

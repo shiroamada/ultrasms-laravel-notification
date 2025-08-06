@@ -14,4 +14,9 @@ class UltraSmsServiceProvider extends ServiceProvider
             return new UltraSmsApi($config);
         });
     }
+
+    public function boot()
+    {
+        // Boot method for Laravel 11+ compatibility
+    }
 }
